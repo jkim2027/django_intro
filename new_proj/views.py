@@ -7,7 +7,13 @@ def root(request):
     return redirect("/blogs")
 
 def index(request):
-    return HttpResponse("placeholder to later display a list of all blogs")
+    context = {
+        "name": "Noelle",
+        "favorite_color": "green", 
+        "pets": ["Bruce", "Fritz", "Georgie"]
+    }
+    return render(request, "index.html", context)
+    # return HttpResponse("placeholder to later display a list of all blogs")
 
 def new(request):
     return HttpResponse("placeholder to display a new form to create a new blog")
@@ -29,4 +35,5 @@ def json(request):
         {
             "title": "My first blog", 
             "content": "Lorem, ipsum dolor sit amet consectetur elit."
-        })
+        }
+        )
